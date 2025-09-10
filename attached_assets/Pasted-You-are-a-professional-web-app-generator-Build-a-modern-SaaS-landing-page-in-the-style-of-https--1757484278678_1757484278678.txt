@@ -1,0 +1,90 @@
+You are a professional web app generator.  
+Build a modern SaaS landing page in the style of [https://www.trychirp.com/](https://www.trychirp.com/) and the attached screenshot.  
+Use **React + TailwindCSS**.  
+
+The brand is **Nousu**.  
+The site should include these sections:
+
+---
+
+### Hero Section
+- Headline: *Scale Faster with Predictable Outbound*  
+- Subheadline: *Outbound that delivers results — we book CEO-level meetings, fill your pipeline, and help you close more deals without extra headcount.*  
+- CTA button: 👉 Get a custom quote today  
+
+---
+
+### Services Section
+Title: *Outbound Sales Solutions Built for Growth*  
+4 cards:  
+- **Lead Generation** — AI-driven campaigns that attract the right prospects and spark engagement.  
+- **Appointment Setting** — Intelligent outreach and follow-ups that secure meetings with decision-makers.  
+- **Sales Development** — Automating repetitive tasks to boost efficiency, reduce errors, and free your team to focus on selling.  
+- **Campaign Management** — Data-driven strategies powered by large language models — turning insight into revenue.  
+
+---
+
+### Introduction Section
+Blurb:  
+*Nousu delivers predictable outbound sales — from lead generation and appointment setting to full campaign execution. We specialise in building pipelines that consistently turn conversations into revenue.*  
+
+---
+
+### Pricing Section
+Title: *Flexible options for every stage of growth*  
+3 cards:  
+1. **Starter Plan** — SDR support, cold calling, targeted campaigns, verified lead sourcing, appointment setting, bi-weekly reporting, Slack channel.  
+2. **Growth Plan** — Expanded SDR coverage, multi-channel outreach, advanced testing, trigger-based engagement, bi-weekly reviews.  
+3. **Professional Plan** — Tailored outbound teams, multi-region campaigns, account manager, advanced intent tracking, dashboards, consulting.  
+
+---
+
+### Features Section
+Icons + list:  
+- Verified Lead Sourcing  
+- Multi-Channel Outreach  
+- Appointment Setting  
+- Signal & Trigger Tracking  
+- Campaign Optimisation  
+- Transparent Reporting  
+
+---
+
+### Process Section (timeline style)
+Steps:  
+1. Initial Strategy Session  
+2. ICP Deep Dive & Data Build  
+3. Weeks 1–4: warm-up campaigns  
+4. Weeks 4–8: optimise scripts  
+5. Week 8+: scale volume  
+
+---
+
+### Results Section
+Big stats:  
+- 114+ meetings booked  
+- $50M+ pipeline generated  
+- 50+ satisfied clients  
+- 112% average ROI  
+
+---
+
+### Contact / Webform
+- Add a clean form at the bottom with fields: **Name, Company, Email, Message**  
+- On submit, send form data to `nguyenledev05@gmail.com` (use Formspree or EmailJS for quick setup).  
+- Show a confirmation message after successful send.  
+
+---
+
+### Footer
+- Company: Nousu Collective  
+- Links: Services, Pricing, Process, Contact  
+- Social media placeholders  
+
+---
+
+**Design instructions**:  
+- Use soft gradient background (light blue → white, like screenshot).  
+- Rounded cards, shadowed boxes, clean sans-serif typography.  
+- Responsive, mobile-friendly.  
+- Keep whitespace balanced, like TryChirp.  
