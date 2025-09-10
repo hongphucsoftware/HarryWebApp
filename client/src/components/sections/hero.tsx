@@ -60,14 +60,66 @@ export default function Hero() {
 
           {/* Trust indicators */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16 flex justify-center items-center space-x-8 opacity-60"
+            className="mt-16"
             data-testid="trust-indicators"
           >
-            <div className="text-sm text-muted-foreground">
-              Trusted by 50+ companies
+            <div className="text-sm text-muted-foreground text-center mb-8">
+              Trusted by 50+ companies worldwide
+            </div>
+            <div className="flex justify-center items-center space-x-12 opacity-60">
+              <motion.div 
+                className="flex items-center space-x-2"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">LP</span>
+                </div>
+                <span className="text-sm font-medium">LogoIpsum</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-2"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">⚡</span>
+                </div>
+                <span className="text-sm font-medium">LogoIpsum</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-2"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">⭐</span>
+                </div>
+                <span className="text-sm font-medium">LogoIpsum</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-2"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">◆</span>
+                </div>
+                <span className="text-sm font-medium">LogoIpsum</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-2"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-blue-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">◉</span>
+                </div>
+                <span className="text-sm font-medium">LogoIpsum</span>
+              </motion.div>
             </div>
           </motion.div>
         </div>

@@ -71,21 +71,33 @@ export default function Features() {
             return (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={
-                  inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.9 }
                 }
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ 
+                  duration: 0.7, 
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100 
+                }}
+                className="text-center group cursor-pointer"
                 data-testid={`feature-${index + 1}`}
+                whileHover={{ y: -5 }}
               >
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <Icon className="text-primary h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">
+                <motion.div 
+                  className="bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-primary/20 shadow-lg"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Icon className="text-primary h-10 w-10" />
+                </motion.div>
+                <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-muted-foreground group-hover:text-foreground transition-colors">
+                  {feature.description}
+                </p>
               </motion.div>
             );
           })}
