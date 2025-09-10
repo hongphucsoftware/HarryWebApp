@@ -55,18 +55,25 @@ export default function Navigation() {
                 Services
               </button>
               <button
+                onClick={() => scrollToSection("about")}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                data-testid="nav-about"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("faq")}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                data-testid="nav-faq"
+              >
+                FAQ
+              </button>
+              <button
                 onClick={() => scrollToSection("pricing")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="nav-pricing"
               >
                 Pricing
-              </button>
-              <button
-                onClick={() => scrollToSection("process")}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="nav-process"
-              >
-                Process
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -110,18 +117,25 @@ export default function Navigation() {
                 Services
               </button>
               <button
+                onClick={() => scrollToSection("about")}
+                className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground w-full text-left"
+                data-testid="mobile-nav-about"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("faq")}
+                className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground w-full text-left"
+                data-testid="mobile-nav-faq"
+              >
+                FAQ
+              </button>
+              <button
                 onClick={() => scrollToSection("pricing")}
                 className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground w-full text-left"
                 data-testid="mobile-nav-pricing"
               >
                 Pricing
-              </button>
-              <button
-                onClick={() => scrollToSection("process")}
-                className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground w-full text-left"
-                data-testid="mobile-nav-process"
-              >
-                Process
               </button>
               <button
                 onClick={() => scrollToSection("contact")}

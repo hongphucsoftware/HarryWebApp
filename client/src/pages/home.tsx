@@ -5,6 +5,8 @@ import Services from "@/components/sections/services";
 import Features from "@/components/sections/features";
 import Process from "@/components/sections/process";
 import Results from "@/components/sections/results";
+import About from "@/components/sections/about";
+import FAQ from "@/components/sections/faq";
 import Pricing from "@/components/sections/pricing";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
@@ -19,6 +21,8 @@ export default function Home() {
       <Features />
       <Process />
       <Results />
+      <About />
+      <FAQ />
       <Pricing />
       <Contact />
       <Footer />
