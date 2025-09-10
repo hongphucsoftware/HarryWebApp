@@ -24,9 +24,20 @@ export default function Contact() {
           >
             Ready to Scale Your Outbound?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-xl text-muted-foreground mb-4">
             Join our waitlist to be the first to experience our revolutionary outbound sales platform
           </p>
+          
+          {/* Free Ebook Offer */}
+          <div className="bg-gradient-to-r from-primary/5 to-purple-600/5 border border-primary/10 rounded-lg p-4 mb-8 inline-block">
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-2xl">🎁</span>
+              <div className="text-left">
+                <p className="font-semibold text-foreground">FREE Bonus: Ultimate Outbound Sales Guide</p>
+                <p className="text-sm text-muted-foreground">40-page ebook with proven templates & strategies</p>
+              </div>
+            </div>
+          </div>
           
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

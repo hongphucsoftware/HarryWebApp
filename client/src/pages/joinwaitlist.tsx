@@ -49,7 +49,8 @@ export default function JoinWaitlist() {
         job_title: data.jobTitle || "Not specified",
         message: data.message || "No additional message",
         reply_to: data.email,
-        subject: "New Waitlist Registration - Nousu Collective",
+        subject: "New Waitlist Registration + FREE Ebook - Nousu Collective",
+        ebook_offer: "FREE Ultimate Outbound Sales Guide (40-page ebook with templates and strategies)",
       };
 
       // EmailJS integration - using public key and service ID from environment
@@ -72,7 +73,7 @@ export default function JoinWaitlist() {
       
       toast({
         title: "Successfully joined the waitlist!",
-        description: "You'll be the first to know when we launch. Check your email for confirmation.",
+        description: "Check your email for your FREE Ultimate Outbound Sales Guide and waitlist confirmation.",
       });
     } catch (error) {
       console.error("Failed to submit waitlist form:", error);
@@ -122,9 +123,44 @@ export default function JoinWaitlist() {
             >
               Join Our Waitlist
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground mb-6">
               Be the first to experience the future of outbound sales automation
             </p>
+            
+            {/* Free Ebook Offer */}
+            <div className="bg-gradient-to-r from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl p-6 mb-8">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-2xl">📚</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-foreground text-center mb-3">
+                FREE Bonus: Ultimate Outbound Sales Guide
+              </h3>
+              <p className="text-center text-muted-foreground mb-4">
+                Get our comprehensive 40-page ebook packed with proven strategies, templates, and frameworks used by top-performing sales teams to book 10x more meetings.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div className="text-center">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span className="text-green-600">✓</span>
+                  </div>
+                  <span className="font-medium">Email Templates</span>
+                </div>
+                <div className="text-center">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span className="text-blue-600">✓</span>
+                  </div>
+                  <span className="font-medium">Follow-up Sequences</span>
+                </div>
+                <div className="text-center">
+                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span className="text-purple-600">✓</span>
+                  </div>
+                  <span className="font-medium">Prospecting Tips</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -227,6 +263,7 @@ export default function JoinWaitlist() {
                     <div className="bg-accent/20 border border-border rounded-lg p-4">
                       <h3 className="font-semibold text-foreground mb-2">What you'll get:</h3>
                       <ul className="text-sm text-muted-foreground space-y-1">
+                        <li>• <strong>FREE Ultimate Outbound Sales Guide</strong> (40-page ebook)</li>
                         <li>• Early access to our revolutionary outbound platform</li>
                         <li>• Exclusive beta features and priority support</li>
                         <li>• Special launch pricing (up to 50% off)</li>
@@ -255,9 +292,20 @@ export default function JoinWaitlist() {
                     <h3 className="text-3xl font-bold text-foreground mb-4">
                       Welcome to the future! 🚀
                     </h3>
-                    <p className="text-lg text-muted-foreground mb-6">
+                    <p className="text-lg text-muted-foreground mb-4">
                       You're now on our exclusive waitlist. We'll reach out soon with early access details and special launch pricing.
                     </p>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                      <div className="flex items-center justify-center mb-2">
+                        <span className="text-2xl">📧</span>
+                      </div>
+                      <p className="text-green-800 text-center font-medium">
+                        Check your email for your FREE Ultimate Outbound Sales Guide!
+                      </p>
+                      <p className="text-green-600 text-center text-sm mt-1">
+                        The ebook download link has been sent to your inbox.
+                      </p>
+                    </div>
                     <div className="space-y-4">
                       <Button
                         onClick={() => setIsSubmitted(false)}
