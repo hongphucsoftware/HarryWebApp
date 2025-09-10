@@ -94,29 +94,38 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="social-linkedin"
+            <h4 className="font-semibold text-foreground mb-4">Get Started</h4>
+            <div className="space-y-4">
+              <button
+                onClick={() => window.location.href = '/joinwaitlist'}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors block w-full md:w-auto"
+                data-testid="footer-join-waitlist"
               >
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="social-twitter"
-              >
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="social-facebook"
-              >
-                <Facebook className="h-6 w-6" />
-              </a>
+                Join Waitlist
+              </button>
+              <div className="flex space-x-4 mt-4">
+                <a
+                  href="#"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid="social-linkedin"
+                >
+                  <Linkedin className="h-6 w-6" />
+                </a>
+                <a
+                  href="#"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid="social-twitter"
+                >
+                  <Twitter className="h-6 w-6" />
+                </a>
+                <a
+                  href="#"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid="social-facebook"
+                >
+                  <Facebook className="h-6 w-6" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

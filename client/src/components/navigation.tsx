@@ -80,11 +80,11 @@ export default function Navigation() {
 
           <div className="flex items-center space-x-4">
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => window.location.href = '/joinwaitlist'}
               className="hidden sm:inline-flex"
-              data-testid="button-get-started"
+              data-testid="button-join-waitlist"
             >
-              Get Started
+              Join Waitlist
             </Button>
 
             {/* Mobile menu button */}
@@ -132,11 +132,11 @@ export default function Navigation() {
               </button>
               <div className="px-3 py-2">
                 <Button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => window.location.href = '/joinwaitlist'}
                   className="w-full"
-                  data-testid="mobile-button-get-started"
+                  data-testid="mobile-button-join-waitlist"
                 >
-                  Get Started
+                  Join Waitlist
                 </Button>
               </div>
             </div>
