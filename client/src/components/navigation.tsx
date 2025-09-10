@@ -40,7 +40,7 @@ export default function Navigation() {
               onClick={() => scrollToSection("hero")}
               data-testid="logo-home"
             >
-              <Logo size="md" />
+              <Logo variant="collective" size="md" />
             </div>
           </div>
 
