@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { SiSlack, SiZoom, SiHubspot, SiSalesforce, SiLinkedin } from "react-icons/si";
+import {
+  SiSlack,
+  SiZoom,
+  SiHubspot,
+  SiSalesforce,
+  SiLinkedin,
+} from "react-icons/si";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -70,7 +76,7 @@ export default function Hero() {
             <div className="text-sm text-muted-foreground text-center mb-12">
               See how our system works
             </div>
-            
+
             <div className="relative max-w-4xl mx-auto h-96">
               {/* Step 1: Lead Generation */}
               <motion.div
@@ -79,7 +85,11 @@ export default function Hero() {
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
               >
-                <span className="text-white text-xs font-bold">Lead<br/>Gen</span>
+                <span className="text-white text-xs font-bold">
+                  Lead
+                  <br />
+                  Gen
+                </span>
               </motion.div>
 
               {/* Animated arrow 1 */}
@@ -104,7 +114,11 @@ export default function Hero() {
                 animate={{ scale: 1 }}
                 transition={{ delay: 1.5, duration: 0.5 }}
               >
-                <span className="text-white text-xs font-bold">AI<br/>Process</span>
+                <span className="text-white text-xs font-bold">
+                  AI
+                  <br />
+                  Process
+                </span>
               </motion.div>
 
               {/* Animated arrow 2 */}
@@ -129,7 +143,11 @@ export default function Hero() {
                 animate={{ scale: 1 }}
                 transition={{ delay: 2.2, duration: 0.5 }}
               >
-                <span className="text-white text-xs font-bold">Out<br/>reach</span>
+                <span className="text-white text-xs font-bold">
+                  Out
+                  <br />
+                  reach
+                </span>
               </motion.div>
 
               {/* Bottom row - Step 4: Analytics */}
@@ -139,7 +157,11 @@ export default function Hero() {
                 animate={{ scale: 1 }}
                 transition={{ delay: 2.7, duration: 0.5 }}
               >
-                <span className="text-white text-xs font-bold">Analy<br/>tics</span>
+                <span className="text-white text-xs font-bold">
+                  Analy
+                  <br />
+                  tics
+                </span>
               </motion.div>
 
               {/* Curved arrow down */}
@@ -157,7 +179,13 @@ export default function Hero() {
                   strokeDasharray="2,2"
                 />
                 <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#10b981" />
                     <stop offset="100%" stopColor="#f59e0b" />
                   </linearGradient>
@@ -189,7 +217,13 @@ export default function Hero() {
                   strokeDasharray="2,2"
                 />
                 <defs>
-                  <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient
+                    id="gradient2"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
                     <stop offset="0%" stopColor="#ec4899" />
                     <stop offset="100%" stopColor="#f59e0b" />
                   </linearGradient>
@@ -199,13 +233,13 @@ export default function Hero() {
               {/* Center data flow animation */}
               <motion.div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                animate={{ 
+                animate={{
                   rotate: 360,
-                  scale: [1, 1.1, 1]
+                  scale: [1, 1.1, 1],
                 }}
-                transition={{ 
+                transition={{
                   rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2, repeat: Infinity }
+                  scale: { duration: 2, repeat: Infinity },
                 }}
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center shadow-xl">
@@ -220,16 +254,16 @@ export default function Hero() {
                   className="absolute w-2 h-2 bg-primary rounded-full opacity-60"
                   style={{
                     top: `${20 + i * 10}%`,
-                    left: `${30 + i * 8}%`
+                    left: `${30 + i * 8}%`,
                   }}
                   animate={{
                     y: [-10, 10, -10],
-                    opacity: [0.3, 1, 0.3]
+                    opacity: [0.3, 1, 0.3],
                   }}
                   transition={{
                     duration: 2,
                     delay: i * 0.3,
-                    repeat: Infinity
+                    repeat: Infinity,
                   }}
                 />
               ))}
