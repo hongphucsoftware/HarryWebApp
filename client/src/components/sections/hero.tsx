@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { SiSlack, SiZoom, SiHubspot, SiSalesforce, SiLinkedin } from "react-icons/si";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -58,7 +59,7 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* Trust indicators */}
+          {/* Trust indicators with circular animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,60 +67,145 @@ export default function Hero() {
             className="mt-16"
             data-testid="trust-indicators"
           >
-            <div className="text-sm text-muted-foreground text-center mb-8">
+            <div className="text-sm text-muted-foreground text-center mb-12">
               Trusted by 50+ companies worldwide
             </div>
-            <div className="flex justify-center items-center space-x-12 opacity-60">
-              <motion.div 
-                className="flex items-center space-x-2"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
+            
+            <div className="relative w-80 h-80 mx-auto">
+              {/* Circular container for logos */}
+              <motion.div
+                className="absolute inset-0"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
               >
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">LP</span>
-                </div>
-                <span className="text-sm font-medium">LogoIpsum</span>
+                {/* Slack */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "10%",
+                    left: "50%",
+                    transform: "translateX(-50%)"
+                  }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    rotate: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear"
+                    },
+                    scale: { duration: 0.2 },
+                    y: { duration: 0.2 }
+                  }}
+                >
+                  <SiSlack className="w-8 h-8 text-[#4A154B]" />
+                </motion.div>
+
+                {/* Zoom */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "30%",
+                    right: "15%"
+                  }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    rotate: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear"
+                    },
+                    scale: { duration: 0.2 },
+                    y: { duration: 0.2 }
+                  }}
+                >
+                  <SiZoom className="w-8 h-8 text-[#2D8CFF]" />
+                </motion.div>
+
+                {/* HubSpot */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    bottom: "30%",
+                    right: "15%"
+                  }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    rotate: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear"
+                    },
+                    scale: { duration: 0.2 },
+                    y: { duration: 0.2 }
+                  }}
+                >
+                  <SiHubspot className="w-8 h-8 text-[#FF7A59]" />
+                </motion.div>
+
+                {/* Salesforce */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    bottom: "10%",
+                    left: "50%",
+                    transform: "translateX(-50%)"
+                  }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    rotate: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear"
+                    },
+                    scale: { duration: 0.2 },
+                    y: { duration: 0.2 }
+                  }}
+                >
+                  <SiSalesforce className="w-8 h-8 text-[#00A1E0]" />
+                </motion.div>
+
+                {/* LinkedIn */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "30%",
+                    left: "15%"
+                  }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    rotate: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear"
+                    },
+                    scale: { duration: 0.2 },
+                    y: { duration: 0.2 }
+                  }}
+                >
+                  <SiLinkedin className="w-8 h-8 text-[#0077B5]" />
+                </motion.div>
               </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">⚡</span>
+
+              {/* Center logo/text */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-xl">
+                    <span className="text-white font-bold text-xl">N</span>
+                  </div>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Nousu Partners
+                  </div>
                 </div>
-                <span className="text-sm font-medium">LogoIpsum</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">⭐</span>
-                </div>
-                <span className="text-sm font-medium">LogoIpsum</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">◆</span>
-                </div>
-                <span className="text-sm font-medium">LogoIpsum</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center space-x-2"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-blue-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">◉</span>
-                </div>
-                <span className="text-sm font-medium">LogoIpsum</span>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
