@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { SiSlack, SiZoom, SiHubspot, SiSalesforce, SiLinkedin } from "react-icons/si";
 import TypewriterEffect from "@/components/ui/typewriter";
 import Logo from "@/components/ui/logo";
+import nousuPartnersLogo from "@/assets/nousu-partners-logo.png";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -187,7 +188,7 @@ export default function Hero() {
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
                   <motion.div 
-                    className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-xl"
+                    className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-2 shadow-xl border border-gray-100"
                     animate={{ rotateY: [0, 360] }}
                     transition={{
                       duration: 8,
@@ -195,7 +196,11 @@ export default function Hero() {
                       ease: "linear"
                     }}
                   >
-                    <span className="text-white font-bold text-xl">N</span>
+                    <img 
+                      src={nousuPartnersLogo} 
+                      alt="Nousu Partners" 
+                      className="w-12 h-12 object-contain"
+                    />
                   </motion.div>
                   <div className="text-sm font-medium text-muted-foreground">
                     Nousu Partners
