@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Logo from "@/components/ui/logo";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,11 +36,11 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div
-              className="text-2xl font-bold text-primary cursor-pointer"
+              className="cursor-pointer"
               onClick={() => scrollToSection("hero")}
               data-testid="logo-home"
             >
-              Nousu
+              <Logo size="md" />
             </div>
           </div>
 

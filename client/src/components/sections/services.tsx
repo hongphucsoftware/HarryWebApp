@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import NumberBadge from "@/components/ui/number-badge";
+import ServiceMockup from "@/components/ui/service-mockup";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const services = [
@@ -8,25 +9,29 @@ const services = [
     number: "01",
     title: "Lead Generation",
     description:
-      "AI-driven campaigns that attract the right prospects and spark engagement.",
+      "Our AI-driven solutions generate high-quality, brand-aligned content to engage your audience effortlessly.",
+    mockupType: "lead-generation" as const,
   },
   {
-    number: "02",
+    number: "02", 
     title: "Appointment Setting",
     description:
-      "Intelligent outreach and follow-ups that secure meetings with decision-makers.",
+      "We create intelligent chatbots powered by advanced NLP to grow customer interactions & operations.",
+    mockupType: "appointment-setting" as const,
   },
   {
     number: "03",
-    title: "Sales Development",
+    title: "Sales Development", 
     description:
-      "Automating repetitive tasks to boost efficiency, reduce errors, and free your team to focus on selling.",
+      "We automate repetitive tasks to improve operational efficiency, grow productivity, errors, and save time.",
+    mockupType: "sales-development" as const,
   },
   {
     number: "04",
     title: "Campaign Management",
     description:
-      "Data-driven strategies powered by large language models — turning insight into revenue.",
+      "We build Large Language Models to revolutionize business processes data & interacts with customers.",
+    mockupType: "campaign-management" as const,
   },
 ];
 
@@ -64,19 +69,24 @@ export default function Services() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card
-                className="h-full card-hover border border-border"
+                className="h-full card-hover border border-border overflow-hidden"
                 data-testid={`service-card-${service.number}`}
               >
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <NumberBadge number={service.number} />
-                    <h3 className="text-2xl font-bold text-card-foreground ml-4">
-                      {service.title}
-                    </h3>
+                <CardContent className="p-0">
+                  <div className="p-8">
+                    <div className="flex items-center mb-6">
+                      <NumberBadge number={service.number} />
+                      <h3 className="text-2xl font-bold text-card-foreground ml-4">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                      {service.description}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    {service.description}
-                  </p>
+                  <div className="px-8 pb-8">
+                    <ServiceMockup type={service.mockupType} />
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
