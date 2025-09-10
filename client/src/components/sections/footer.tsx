@@ -122,9 +122,14 @@ export default function Footer() {
         </div>
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground">
-              © 2024 Nousu Collective. All rights reserved.
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-muted-foreground">
+                © 2024 Nousu Collective. All rights reserved.
+              </p>
+              <p className="text-muted-foreground text-sm mt-1">
+                Made with ❤️ in Sydney, Nousu Collective.
+              </p>
+            </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
                 href="#"

@@ -71,136 +71,105 @@ export default function Hero() {
               Trusted by 50+ companies worldwide
             </div>
             
-            <div className="relative w-80 h-80 mx-auto">
-              {/* Circular container for logos */}
+            <div className="relative w-80 h-80 mx-auto" style={{ perspective: "1000px" }}>
+              {/* 3D Circular container for logos */}
               <motion.div
-                className="absolute inset-0"
-                animate={{ rotate: 360 }}
+                className="absolute inset-0 preserve-3d"
+                animate={{ rotateY: 360 }}
                 transition={{
-                  duration: 20,
+                  duration: 15,
                   repeat: Infinity,
                   ease: "linear"
                 }}
+                style={{
+                  transformStyle: "preserve-3d"
+                }}
               >
-                {/* Slack */}
+                {/* Slack - Front */}
                 <motion.div
                   className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
-                    top: "10%",
+                    top: "50%",
                     left: "50%",
-                    transform: "translateX(-50%)"
+                    transform: "translate(-50%, -50%) translateZ(120px)"
                   }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    rotate: {
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    },
-                    scale: { duration: 0.2 },
-                    y: { duration: 0.2 }
-                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
                 >
                   <SiSlack className="w-8 h-8 text-[#4A154B]" />
                 </motion.div>
 
-                {/* Zoom */}
+                {/* Zoom - Right */}
                 <motion.div
                   className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
-                    top: "30%",
-                    right: "15%"
+                    top: "50%", 
+                    left: "50%",
+                    transform: "translate(-50%, -50%) rotateY(72deg) translateZ(120px)"
                   }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    rotate: {
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    },
-                    scale: { duration: 0.2 },
-                    y: { duration: 0.2 }
-                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
                 >
                   <SiZoom className="w-8 h-8 text-[#2D8CFF]" />
                 </motion.div>
 
-                {/* HubSpot */}
+                {/* HubSpot - Back Right */}
                 <motion.div
                   className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
-                    bottom: "30%",
-                    right: "15%"
+                    top: "50%",
+                    left: "50%", 
+                    transform: "translate(-50%, -50%) rotateY(144deg) translateZ(120px)"
                   }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    rotate: {
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    },
-                    scale: { duration: 0.2 },
-                    y: { duration: 0.2 }
-                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
                 >
                   <SiHubspot className="w-8 h-8 text-[#FF7A59]" />
                 </motion.div>
 
-                {/* Salesforce */}
+                {/* Salesforce - Back Left */}
                 <motion.div
                   className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
-                    bottom: "10%",
+                    top: "50%",
                     left: "50%",
-                    transform: "translateX(-50%)"
+                    transform: "translate(-50%, -50%) rotateY(216deg) translateZ(120px)"
                   }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    rotate: {
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    },
-                    scale: { duration: 0.2 },
-                    y: { duration: 0.2 }
-                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
                 >
                   <SiSalesforce className="w-8 h-8 text-[#00A1E0]" />
                 </motion.div>
 
-                {/* LinkedIn */}
+                {/* LinkedIn - Left */}
                 <motion.div
                   className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
-                    top: "30%",
-                    left: "15%"
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%) rotateY(288deg) translateZ(120px)"
                   }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    rotate: {
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    },
-                    scale: { duration: 0.2 },
-                    y: { duration: 0.2 }
-                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
                 >
                   <SiLinkedin className="w-8 h-8 text-[#0077B5]" />
                 </motion.div>
               </motion.div>
 
               {/* Center logo/text */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-xl">
+                  <motion.div 
+                    className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-xl"
+                    animate={{ rotateY: [0, 360] }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  >
                     <span className="text-white font-bold text-xl">N</span>
-                  </div>
+                  </motion.div>
                   <div className="text-sm font-medium text-muted-foreground">
                     Nousu Partners
                   </div>
