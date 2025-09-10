@@ -27,7 +27,7 @@ export default function Hero() {
             className="mb-8"
             data-testid="hero-brand"
           >
-            <Logo variant="full" size="xl" className="justify-center mb-8" />
+            <Logo variant="collective" size="xl" className="justify-center mb-8" />
           </motion.div>
 
           <motion.div

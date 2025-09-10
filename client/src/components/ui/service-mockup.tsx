@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ServiceMockupProps {
-  type: "lead-generation" | "appointment-setting" | "sales-development" | "campaign-management";
+  type: "lead-generation" | "appointment-setting" | "sales-development" | "campaign-management" | "security" | "funnel";
   className?: string;
 }
 
@@ -112,6 +112,63 @@ export default function ServiceMockup({ type, className }: ServiceMockupProps) {
         </div>
         <div className="bg-primary text-white rounded-full py-1 px-3 text-center text-xs">
           Generate AI ✨
+        </div>
+      </div>
+    ),
+    "security": (
+      <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm relative">
+        <div className="absolute inset-0 bg-gray-50 opacity-30 rounded-lg"></div>
+        <div className="relative z-10">
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
+                <span className="text-white text-xs">🔒</span>
+              </div>
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-sm font-medium text-gray-800 mb-2">Security Certifications</div>
+            <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
+              <div className="bg-gray-100 rounded px-2 py-1">ISO 27001</div>
+              <div className="bg-gray-100 rounded px-2 py-1">SOC 2</div>
+              <div className="bg-gray-100 rounded px-2 py-1">GDPR</div>
+              <div className="bg-gray-100 rounded px-2 py-1">CCPA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    "funnel": (
+      <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
+        <div className="flex justify-between items-center mb-3">
+          <div className="text-sm font-medium text-gray-800">Upstream - Tofu</div>
+        </div>
+        <div className="flex justify-center mb-3">
+          <div className="flex space-x-2">
+            <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center">
+              <span className="text-white text-xs">📧</span>
+            </div>
+            <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+              <span className="text-white text-xs">💬</span>
+            </div>
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white text-xs">📱</span>
+            </div>
+          </div>
+        </div>
+        <div className="text-center mb-3">
+          <div className="text-xs text-gray-500">Downstream - CS</div>
+        </div>
+        <div className="flex justify-center space-x-2">
+          <div className="w-6 h-6 bg-red-500 rounded flex items-center justify-center">
+            <span className="text-white text-xs">A</span>
+          </div>
+          <div className="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
+            <span className="text-white text-xs">📊</span>
+          </div>
+          <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center">
+            <span className="text-white text-xs">H</span>
+          </div>
         </div>
       </div>
     )
