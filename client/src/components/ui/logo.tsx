@@ -1,59 +1,58 @@
 import { cn } from "@/lib/utils";
+import logoIcon from "@/assets/logo-icon.png";
+import logoFull from "@/assets/logo-full.png";
 
 interface LogoProps {
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   showText?: boolean;
+  variant?: "icon" | "full"; // New prop to explicitly choose variant
 }
 
-export default function Logo({ size = "md", className, showText = true }: LogoProps) {
+export default function Logo({ 
+  size = "md", 
+  className, 
+  showText = true, 
+  variant 
+}: LogoProps) {
+  // Determine which logo to use
+  const useFullLogo = variant === "full" || (size === "lg" || size === "xl") && showText;
+  
   const sizeClasses = {
-    sm: "w-8 h-8",
-    md: "w-10 h-10", 
-    lg: "w-12 h-12"
+    sm: useFullLogo ? "h-6" : "w-8 h-8",
+    md: useFullLogo ? "h-8" : "w-10 h-10", 
+    lg: useFullLogo ? "h-10" : "w-12 h-12",
+    xl: useFullLogo ? "h-12" : "w-16 h-16"
   };
 
-  const textSizes = {
-    sm: "text-lg",
-    md: "text-xl",
-    lg: "text-2xl"
-  };
+  // If using full logo, don't show separate text
+  if (useFullLogo) {
+    return (
+      <div className={cn("flex items-center", className)} data-testid="logo">
+        <img
+          src={logoFull}
+          alt="Nousu - Communicate. Collaborate. Create."
+          className={cn("object-contain", sizeClasses[size])}
+          data-testid="logo-full"
+        />
+      </div>
+    );
+  }
 
+  // For smaller sizes or icon-only, use the N icon
   return (
     <div className={cn("flex items-center space-x-3", className)} data-testid="logo">
-      {/* Modern geometric logo icon */}
-      <div className={cn("relative", sizeClasses[size])}>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl rotate-6 opacity-20"></div>
-        <div className="relative bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg p-2 shadow-lg">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            className="w-full h-full text-white"
-            data-testid="logo-icon"
-          >
-            {/* Abstract "N" shape with modern geometric design */}
-            <path
-              d="M4 4L20 4C20.5523 4 21 4.44772 21 5V19C21 19.5523 20.5523 20 20 20H4C3.44772 20 3 19.5523 3 19V5C3 4.44772 3.44772 4 4 4Z"
-              fill="currentColor"
-              fillOpacity="0.2"
-            />
-            <path
-              d="M6 8L6 16M18 8L18 16M6 8L12 14L18 8"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="15" cy="9" r="2" fill="currentColor" opacity="0.8" />
-          </svg>
-        </div>
-      </div>
+      <img
+        src={logoIcon}
+        alt="Nousu"
+        className={cn("object-contain", sizeClasses[size])}
+        data-testid="logo-icon"
+      />
       
       {showText && (
         <span
           className={cn(
-            "font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent",
-            textSizes[size]
+            "font-bold text-foreground text-xl"
           )}
           data-testid="logo-text"
         >
