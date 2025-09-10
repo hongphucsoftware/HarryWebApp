@@ -1,0 +1,164 @@
+import { useState, useEffect } from "react"
+import { addPropertyControls, ControlType } from "framer"
+
+export default function TypewriterEffect({
+    staticText,
+    words,
+    speed,
+    eraseSpeed,
+    delay,
+    cursor,
+    cursorCharacter,
+    cursorColor,
+    font,
+}) {
+    const [displayedText, setDisplayedText] = useState("")
+    const [index, setIndex] = useState(0)
+    const [wordIndex, setWordIndex] = useState(0)
+    const [isDeleting, setIsDeleting] = useState(false)
+    const [blink, setBlink] = useState(true)
+
+    useEffect(() => {
+        const blinkInterval = setInterval(() => {
+            setBlink((prev) => !prev)
+        }, 500)
+        return () => clearInterval(blinkInterval)
+    }, [])
+
+    useEffect(() => {
+        if (wordIndex >= words.length) return
+        const currentWord = words[wordIndex]
+
+        if (!isDeleting && index < currentWord.length) {
+            const timeout = setTimeout(() => {
+                setDisplayedText((prev) => prev + currentWord[index])
+                setIndex(index + 1)
+            }, speed)
+            return () => clearTimeout(timeout)
+        } else if (isDeleting && index > 0) {
+            const timeout = setTimeout(() => {
+                setDisplayedText((prev) => prev.slice(0, -1))
+                setIndex(index - 1)
+            }, eraseSpeed)
+            return () => clearTimeout(timeout)
+        } else if (!isDeleting && index === currentWord.length) {
+            setTimeout(() => setIsDeleting(true), delay)
+        } else if (isDeleting && index === 0) {
+            setIsDeleting(false)
+            setWordIndex((prev) => (prev + 1) % words.length)
+        }
+    }, [index, isDeleting, wordIndex, words, speed, eraseSpeed, delay])
+
+    return (
+        <div
+            style={{
+                fontFamily: font.family,
+                fontSize: font.size,
+                fontWeight: font.weight,
+                color: font.color,
+                letterSpacing: font.letterSpacing,
+                lineHeight: font.lineHeight,
+            }}
+        >
+            {staticText} <span>{displayedText}</span>
+            {cursor && (
+                <span style={{ opacity: blink ? 1 : 0, color: cursorColor }}>
+                    {cursorCharacter || "|"}
+                </span>
+            )}
+        </div>
+    )
+}
+
+addPropertyControls(TypewriterEffect, {
+    staticText: {
+        type: ControlType.String,
+        title: "Static Text",
+        defaultValue: "We book meetings for",
+    },
+    words: {
+        type: ControlType.Array,
+        title: "Words",
+        control: { type: ControlType.String },
+        defaultValue: ["startups", "scale-ups", "tech", "SaaS"],
+    },
+    speed: {
+        type: ControlType.Number,
+        title: "Typing Speed (ms)",
+        defaultValue: 100,
+        min: 20,
+        max: 500,
+    },
+    eraseSpeed: {
+        type: ControlType.Number,
+        title: "Erasing Speed (ms)",
+        defaultValue: 50,
+        min: 20,
+        max: 500,
+    },
+    delay: {
+        type: ControlType.Number,
+        title: "Delay Before Erasing (ms)",
+        defaultValue: 1500,
+        min: 500,
+        max: 5000,
+    },
+    cursor: {
+        type: ControlType.Boolean,
+        title: "Show Cursor",
+        defaultValue: true,
+    },
+    cursorCharacter: {
+        type: ControlType.String,
+        title: "Cursor Character",
+        defaultValue: "|",
+    },
+    cursorColor: {
+        type: ControlType.Color,
+        title: "Cursor Color",
+        defaultValue: "#2563EB", // brand blue
+    },
+    font: {
+        type: ControlType.Object,
+        title: "Font",
+        controls: {
+            family: {
+                type: ControlType.String,
+                title: "Font Family",
+                defaultValue: "Inter",
+            },
+            size: {
+                type: ControlType.Number,
+                title: "Font Size",
+                defaultValue: 48, // much larger
+                min: 20,
+                max: 120,
+            },
+            weight: {
+                type: ControlType.Enum,
+                title: "Font Weight",
+                options: ["normal", "bold", "lighter"],
+                defaultValue: "bold",
+            },
+            color: {
+                type: ControlType.Color,
+                title: "Font Color",
+                defaultValue: "#111827", // charcoal
+            },
+            letterSpacing: {
+                type: ControlType.Number,
+                title: "Letter Spacing",
+                defaultValue: 0,
+                min: -5,
+                max: 10,
+            },
+            lineHeight: {
+                type: ControlType.Number,
+                title: "Line Height",
+                defaultValue: 1.3,
+                min: 1,
+                max: 3,
+            },
+        },
+    },
+})

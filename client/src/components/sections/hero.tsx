@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import {
-  SiSlack,
-  SiZoom,
-  SiHubspot,
-  SiSalesforce,
-  SiLinkedin,
-} from "react-icons/si";
+import { SiSlack, SiZoom, SiHubspot, SiSalesforce, SiLinkedin } from "react-icons/si";
+import TypewriterEffect from "@/components/ui/typewriter";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -24,17 +19,24 @@ export default function Hero() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl font-bold text-foreground mb-6"
+            className="mb-6"
             data-testid="hero-headline"
           >
-            Scale Faster with
-            <br />
-            <span className="text-primary">Predictable Outbound</span>
-          </motion.h1>
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
+              Scale Faster with
+            </h1>
+            <TypewriterEffect
+              staticText="Predictable"
+              words={["Outbound", "Lead Generation", "Sales Automation", "Growth"]}
+              className="text-5xl md:text-7xl font-bold"
+              speed={120}
+              delay={2000}
+            />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -53,220 +55,152 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="text-lg font-semibold px-8 py-6 rounded-xl hover:scale-105 transition-all duration-300"
-              data-testid="button-cta-hero"
+            <motion.div
+              whileHover={{ x: 5 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <span className="mr-2">👉</span>
-              Get a custom quote today
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              <Button
+                onClick={scrollToContact}
+                size="lg"
+                className="text-lg font-semibold px-8 py-6 rounded-xl bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 group overflow-hidden relative"
+                data-testid="button-cta-hero"
+              >
+                <motion.span 
+                  className="inline-block mr-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  👉
+                </motion.span>
+                Get a custom quote today
+                <motion.div
+                  className="inline-block ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowRight className="h-5 w-5" />
+                </motion.div>
+              </Button>
+            </motion.div>
           </motion.div>
 
-          {/* Workflow Animation */}
+          {/* Circular company logos animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-16"
-            data-testid="workflow-animation"
+            data-testid="trust-indicators"
           >
             <div className="text-sm text-muted-foreground text-center mb-12">
-              See how our system works
+              Trusted by 50+ companies worldwide
             </div>
-
-            <div className="relative max-w-4xl mx-auto h-96">
-              {/* Step 1: Lead Generation */}
+            
+            <div className="relative w-80 h-80 mx-auto" style={{ perspective: "1000px" }}>
+              {/* 3D Circular container for logos */}
               <motion.div
-                className="absolute top-8 left-8 w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-              >
-                <span className="text-white text-xs font-bold">
-                  Lead
-                  <br />
-                  Gen
-                </span>
-              </motion.div>
-
-              {/* Animated arrow 1 */}
-              <motion.div
-                className="absolute top-12 left-32 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 1.3, duration: 0.8 }}
-                style={{ transformOrigin: "left" }}
-              >
-                <motion.div
-                  className="absolute right-0 top-0 w-2 h-2 bg-purple-500 rounded-full"
-                  animate={{ x: [0, 8, 0] }}
-                  transition={{ delay: 2.1, duration: 1.5, repeat: Infinity }}
-                />
-              </motion.div>
-
-              {/* Step 2: AI Processing */}
-              <motion.div
-                className="absolute top-8 left-60 w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
-              >
-                <span className="text-white text-xs font-bold">
-                  AI
-                  <br />
-                  Process
-                </span>
-              </motion.div>
-
-              {/* Animated arrow 2 */}
-              <motion.div
-                className="absolute top-12 left-84 w-24 h-1 bg-gradient-to-r from-purple-500 to-green-500"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 2, duration: 0.8 }}
-                style={{ transformOrigin: "left" }}
-              >
-                <motion.div
-                  className="absolute right-0 top-0 w-2 h-2 bg-green-500 rounded-full"
-                  animate={{ x: [0, 8, 0] }}
-                  transition={{ delay: 2.8, duration: 1.5, repeat: Infinity }}
-                />
-              </motion.div>
-
-              {/* Step 3: Outreach */}
-              <motion.div
-                className="absolute top-8 right-8 w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 2.2, duration: 0.5 }}
-              >
-                <span className="text-white text-xs font-bold">
-                  Out
-                  <br />
-                  reach
-                </span>
-              </motion.div>
-
-              {/* Bottom row - Step 4: Analytics */}
-              <motion.div
-                className="absolute bottom-8 left-8 w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 2.7, duration: 0.5 }}
-              >
-                <span className="text-white text-xs font-bold">
-                  Analy
-                  <br />
-                  tics
-                </span>
-              </motion.div>
-
-              {/* Curved arrow down */}
-              <motion.svg
-                className="absolute top-28 right-16 w-12 h-32"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ delay: 2.9, duration: 1.2 }}
-              >
-                <path
-                  d="M 6 0 Q 24 16 6 32"
-                  stroke="url(#gradient)"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="2,2"
-                />
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stopColor="#10b981" />
-                    <stop offset="100%" stopColor="#f59e0b" />
-                  </linearGradient>
-                </defs>
-              </motion.svg>
-
-              {/* Step 5: Results */}
-              <motion.div
-                className="absolute bottom-8 right-8 w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 3.4, duration: 0.5 }}
-              >
-                <span className="text-white text-xs font-bold">Results</span>
-              </motion.div>
-
-              {/* Curved arrow left */}
-              <motion.svg
-                className="absolute bottom-16 left-32 w-32 h-12"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ delay: 3.9, duration: 1.2 }}
-              >
-                <path
-                  d="M 0 6 Q 16 -6 32 6"
-                  stroke="url(#gradient2)"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="2,2"
-                />
-                <defs>
-                  <linearGradient
-                    id="gradient2"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="#ec4899" />
-                    <stop offset="100%" stopColor="#f59e0b" />
-                  </linearGradient>
-                </defs>
-              </motion.svg>
-
-              {/* Center data flow animation */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                animate={{
-                  rotate: 360,
-                  scale: [1, 1.1, 1],
-                }}
+                className="absolute inset-0 preserve-3d"
+                animate={{ rotateY: 360 }}
                 transition={{
-                  rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2, repeat: Infinity },
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  transformStyle: "preserve-3d"
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center shadow-xl">
-                  <span className="text-white font-bold text-lg">⚡</span>
-                </div>
+                {/* Slack - Front */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%) translateZ(120px)"
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
+                >
+                  <SiSlack className="w-8 h-8 text-[#4A154B]" />
+                </motion.div>
+
+                {/* Zoom - Right */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "50%", 
+                    left: "50%",
+                    transform: "translate(-50%, -50%) rotateY(72deg) translateZ(120px)"
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
+                >
+                  <SiZoom className="w-8 h-8 text-[#2D8CFF]" />
+                </motion.div>
+
+                {/* HubSpot - Back Right */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "50%",
+                    left: "50%", 
+                    transform: "translate(-50%, -50%) rotateY(144deg) translateZ(120px)"
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
+                >
+                  <SiHubspot className="w-8 h-8 text-[#FF7A59]" />
+                </motion.div>
+
+                {/* Salesforce - Back Left */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%) rotateY(216deg) translateZ(120px)"
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
+                >
+                  <SiSalesforce className="w-8 h-8 text-[#00A1E0]" />
+                </motion.div>
+
+                {/* LinkedIn - Left */}
+                <motion.div
+                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%) rotateY(288deg) translateZ(120px)"
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ scale: { duration: 0.2 } }}
+                >
+                  <SiLinkedin className="w-8 h-8 text-[#0077B5]" />
+                </motion.div>
               </motion.div>
 
-              {/* Floating data points */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-primary rounded-full opacity-60"
-                  style={{
-                    top: `${20 + i * 10}%`,
-                    left: `${30 + i * 8}%`,
-                  }}
-                  animate={{
-                    y: [-10, 10, -10],
-                    opacity: [0.3, 1, 0.3],
-                  }}
-                  transition={{
-                    duration: 2,
-                    delay: i * 0.3,
-                    repeat: Infinity,
-                  }}
-                />
-              ))}
+              {/* Center logo/text */}
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="text-center">
+                  <motion.div 
+                    className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-xl"
+                    animate={{ rotateY: [0, 360] }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  >
+                    <span className="text-white font-bold text-xl">N</span>
+                  </motion.div>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Nousu Partners
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
