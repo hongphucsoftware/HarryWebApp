@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import nousuTeamVideo from "@/assets/nousu-team-video.mp4";
 
 export default function About() {
   const { ref, inView } = useIntersectionObserver({
@@ -21,20 +22,27 @@ export default function About() {
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-purple-50 to-green-100 flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center relative">
-                  {/* Mock image content - professional office scene */}
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZjNmNGY2Ii8+CjxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIHJ4PSIxMCIgZmlsbD0iIzEwYjk4MSIgb3BhY2l0eT0iMC4xIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNDAiIGZpbGw9IiMxMGI5ODEiIG9wYWNpdHk9IjAuMiIvPgo8L3N2Zz4=')] opacity-30"></div>
-                  <div className="text-center z-10">
-                    <div className="w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
-                      <span className="text-white font-bold text-2xl">N</span>
+              <video
+                className="w-full h-full object-cover aspect-[4/3]"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={nousuTeamVideo} type="video/mp4" />
+                <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-purple-50 to-green-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center relative">
+                    <div className="text-center z-10">
+                      <div className="w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
+                        <span className="text-white font-bold text-2xl">N</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Nousu Collective Team
+                      </p>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      Nousu Collective Team
-                    </p>
                   </div>
                 </div>
-              </div>
+              </video>
               
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full opacity-80"></div>
