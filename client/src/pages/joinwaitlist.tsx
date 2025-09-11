@@ -38,44 +38,27 @@ export default function JoinWaitlist() {
 
   const onSubmit = async (data: WaitlistForm) => {
     setIsSubmitting(true);
-    
     try {
-      // Create mailto link with form data - completely free, no configuration needed
-      const subject = encodeURIComponent("New Waitlist Registration + FREE Ebook - Nousu Collective");
-      const body = encodeURIComponent(`
-New Waitlist Registration:
-
-Name: ${data.name}
-Company: ${data.company}
-Email: ${data.email}
-Job Title: ${data.jobTitle || "Not specified"}
-Message: ${data.message || "No additional message"}
-
-Please send the FREE Ultimate Outbound Sales Guide (40-page ebook with templates and strategies).
-      `);
-      
-      const mailtoUrl = `mailto:nguyenledev05@gmail.com?subject=${subject}&body=${body}`;
-      
-      // Open user's email client with pre-filled email
-      window.open(mailtoUrl);
-      
-      // Show success after a short delay
-      setTimeout(() => {
-        setIsSubmitted(true);
-        reset();
-        
-        toast({
-          title: "Successfully joined the waitlist!",
-          description: "Your email client should have opened with a pre-filled message. Please send it to complete your waitlist registration and get your FREE Ultimate Outbound Sales Guide.",
-        });
-      }, 500);
-      
-    } catch (error) {
-      console.error("Failed to submit waitlist form:", error);
+      const resp = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!resp.ok) {
+        throw new Error('Failed to send');
+      }
+      setIsSubmitted(true);
+      reset();
       toast({
-        title: "Failed to join waitlist",
-        description: "Please try again or contact us directly at nguyenledev05@gmail.com.",
-        variant: "destructive",
+        title: 'Successfully joined the waitlist!',
+        description: 'Thanks! We\'ll reach out via email with your FREE guide.'
+      });
+    } catch (error) {
+      console.error('Failed to submit waitlist form:', error);
+      toast({
+        title: 'Failed to join waitlist',
+        description: 'Please try again later.',
+        variant: 'destructive'
       });
     } finally {
       setIsSubmitting(false);
