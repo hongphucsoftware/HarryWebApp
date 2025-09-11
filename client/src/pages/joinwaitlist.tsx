@@ -40,46 +40,41 @@ export default function JoinWaitlist() {
     setIsSubmitting(true);
     
     try {
-      // Using EmailJS for form submission
-      const emailJSParams = {
-        to_email: "nguyenledev05@gmail.com",
-        from_name: data.name,
-        from_company: data.company,
-        from_email: data.email,
-        job_title: data.jobTitle || "Not specified",
-        message: data.message || "No additional message",
-        reply_to: data.email,
-        subject: "New Waitlist Registration + FREE Ebook - Nousu Collective",
-        ebook_offer: "FREE Ultimate Outbound Sales Guide (40-page ebook with templates and strategies)",
-      };
+      // Create mailto link with form data - completely free, no configuration needed
+      const subject = encodeURIComponent("New Waitlist Registration + FREE Ebook - Nousu Collective");
+      const body = encodeURIComponent(`
+New Waitlist Registration:
 
-      // EmailJS integration - using public key and service ID from environment
-      const emailJSService = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_nousu";
-      const emailJSTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_nousu";
-      const emailJSPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "default_key";
+Name: ${data.name}
+Company: ${data.company}
+Email: ${data.email}
+Job Title: ${data.jobTitle || "Not specified"}
+Message: ${data.message || "No additional message"}
 
-      // Import EmailJS dynamically
-      const emailjs = await import("@emailjs/browser");
+Please send the FREE Ultimate Outbound Sales Guide (40-page ebook with templates and strategies).
+      `);
       
-      await emailjs.send(
-        emailJSService,
-        emailJSTemplate,
-        emailJSParams,
-        emailJSPublicKey
-      );
-
-      setIsSubmitted(true);
-      reset();
+      const mailtoUrl = `mailto:nguyenledev05@gmail.com?subject=${subject}&body=${body}`;
       
-      toast({
-        title: "Successfully joined the waitlist!",
-        description: "Check your email for your FREE Ultimate Outbound Sales Guide and waitlist confirmation.",
-      });
+      // Open user's email client with pre-filled email
+      window.open(mailtoUrl);
+      
+      // Show success after a short delay
+      setTimeout(() => {
+        setIsSubmitted(true);
+        reset();
+        
+        toast({
+          title: "Successfully joined the waitlist!",
+          description: "Your email client should have opened with a pre-filled message. Please send it to complete your waitlist registration and get your FREE Ultimate Outbound Sales Guide.",
+        });
+      }, 500);
+      
     } catch (error) {
       console.error("Failed to submit waitlist form:", error);
       toast({
         title: "Failed to join waitlist",
-        description: "Please try again or contact us directly.",
+        description: "Please try again or contact us directly at nguyenledev05@gmail.com.",
         variant: "destructive",
       });
     } finally {

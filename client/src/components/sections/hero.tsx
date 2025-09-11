@@ -99,7 +99,7 @@ export default function Hero() {
               Trusted by 50+ companies worldwide
             </div>
             
-            <div className="relative w-80 h-80 mx-auto" style={{ perspective: "1000px" }}>
+            <div className="relative w-96 h-96 mx-auto" style={{ perspective: "1200px" }}>
               {/* 3D Circular container for logos */}
               <motion.div
                 className="absolute inset-0 preserve-3d"
@@ -115,72 +115,72 @@ export default function Hero() {
               >
                 {/* Slack - Front */}
                 <motion.div
-                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  className="absolute w-24 h-24 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
                     top: "50%",
                     left: "50%",
-                    transform: "translate(-50%, -50%) translateZ(120px)"
+                    transform: "translate(-50%, -50%) translateZ(150px)"
                   }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ scale: { duration: 0.2 } }}
                 >
-                  <SiSlack className="w-8 h-8 text-[#4A154B]" />
+                  <SiSlack className="w-12 h-12 text-[#4A154B]" />
                 </motion.div>
 
                 {/* Zoom - Right */}
                 <motion.div
-                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  className="absolute w-24 h-24 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
                     top: "50%", 
                     left: "50%",
-                    transform: "translate(-50%, -50%) rotateY(72deg) translateZ(120px)"
+                    transform: "translate(-50%, -50%) rotateY(72deg) translateZ(150px)"
                   }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ scale: { duration: 0.2 } }}
                 >
-                  <SiZoom className="w-8 h-8 text-[#2D8CFF]" />
+                  <SiZoom className="w-12 h-12 text-[#2D8CFF]" />
                 </motion.div>
 
                 {/* HubSpot - Back Right */}
                 <motion.div
-                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  className="absolute w-24 h-24 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
                     top: "50%",
                     left: "50%", 
-                    transform: "translate(-50%, -50%) rotateY(144deg) translateZ(120px)"
+                    transform: "translate(-50%, -50%) rotateY(144deg) translateZ(150px)"
                   }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ scale: { duration: 0.2 } }}
                 >
-                  <SiHubspot className="w-8 h-8 text-[#FF7A59]" />
+                  <SiHubspot className="w-12 h-12 text-[#FF7A59]" />
                 </motion.div>
 
                 {/* Salesforce - Back Left */}
                 <motion.div
-                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  className="absolute w-24 h-24 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
                     top: "50%",
                     left: "50%",
-                    transform: "translate(-50%, -50%) rotateY(216deg) translateZ(120px)"
+                    transform: "translate(-50%, -50%) rotateY(216deg) translateZ(150px)"
                   }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ scale: { duration: 0.2 } }}
                 >
-                  <SiSalesforce className="w-8 h-8 text-[#00A1E0]" />
+                  <SiSalesforce className="w-12 h-12 text-[#00A1E0]" />
                 </motion.div>
 
                 {/* LinkedIn - Left */}
                 <motion.div
-                  className="absolute w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
+                  className="absolute w-24 h-24 flex items-center justify-center bg-white rounded-xl shadow-lg border border-gray-100"
                   style={{
                     top: "50%",
                     left: "50%",
-                    transform: "translate(-50%, -50%) rotateY(288deg) translateZ(120px)"
+                    transform: "translate(-50%, -50%) rotateY(288deg) translateZ(150px)"
                   }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ scale: { duration: 0.2 } }}
                 >
-                  <SiLinkedin className="w-8 h-8 text-[#0077B5]" />
+                  <SiLinkedin className="w-12 h-12 text-[#0077B5]" />
                 </motion.div>
               </motion.div>
 
@@ -188,7 +188,7 @@ export default function Hero() {
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
                   <motion.div 
-                    className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-2 shadow-xl border border-gray-100"
+                    className="w-28 h-28 bg-white rounded-2xl flex items-center justify-center mb-2 shadow-xl border border-gray-100"
                     animate={{ rotateY: [0, 360] }}
                     transition={{
                       duration: 8,
@@ -199,7 +199,7 @@ export default function Hero() {
                     <img 
                       src={nousuPartnersLogo} 
                       alt="Nousu Partners" 
-                      className="w-12 h-12 object-contain"
+                      className="w-16 h-16 object-contain"
                     />
                   </motion.div>
                   <div className="text-sm font-medium text-muted-foreground">
