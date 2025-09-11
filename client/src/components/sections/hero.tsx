@@ -99,7 +99,7 @@ export default function Hero() {
               Trusted by 50+ companies worldwide
             </div>
             
-            <div className="relative w-96 h-96 mx-auto" style={{ perspective: "1200px" }}>
+            <div className="relative w-[28rem] h-[28rem] mx-auto" style={{ perspective: "1200px" }}>
               {/* 3D Circular container for logos */}
               <motion.div
                 className="absolute inset-0 preserve-3d"
@@ -188,7 +188,7 @@ export default function Hero() {
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="text-center">
                   <motion.div 
-                    className="w-28 h-28 bg-white rounded-2xl flex items-center justify-center mb-2 shadow-xl border border-gray-100"
+                    className="w-36 h-36 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-xl border border-gray-100"
                     animate={{ rotateY: [0, 360] }}
                     transition={{
                       duration: 8,
@@ -199,11 +199,21 @@ export default function Hero() {
                     <img 
                       src={nousuPartnersLogo} 
                       alt="Nousu Partners" 
-                      className="w-16 h-16 object-contain"
+                      className="w-20 h-20 object-contain"
                     />
                   </motion.div>
-                  <div className="text-sm font-medium text-muted-foreground">
-                    Nousu Partners
+                  <div className="text-lg md:text-xl font-semibold text-muted-foreground tracking-wide">
+                    {"Nousu Partners".split("").map((ch, i) => (
+                      <motion.span
+                        key={i}
+                        className="inline-block"
+                        initial={{ y: 0, opacity: 0.85 }}
+                        animate={{ y: [0, -2, 0], opacity: [0.85, 1, 0.85] }}
+                        transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.06, ease: "easeInOut" }}
+                      >
+                        {ch === " " ? "\u00A0" : ch}
+                      </motion.span>
+                    ))}
                   </div>
                 </div>
               </div>
