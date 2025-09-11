@@ -5,12 +5,9 @@ node_modules
 dist
 build
 server
-shared
 attached_assets
 replit.md
 drizzle.config.ts
-tailwind.config.ts
 tsconfig.json
-postcss.config.js
-vite.config.ts
+ 
 

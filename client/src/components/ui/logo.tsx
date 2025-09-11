@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import logoIcon from "@/assets/logo-icon.png";
 import logoFull from "@/assets/logo-full.png";
 import logoCollective from "@/assets/logo-collective.png";
-import nousuNavLogo from "@/assets/nousu-nav-logo.png";
+import nousuNavLogo from "@/assets/nousu-partners-logo.png";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
